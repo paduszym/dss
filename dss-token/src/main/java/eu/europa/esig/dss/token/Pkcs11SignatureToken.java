@@ -62,7 +62,7 @@ public class Pkcs11SignatureToken extends AbstractKeyStoreTokenConnection {
 	private final PasswordInputCallback callback;
 
 	/** The slot Id to use */
-	private final int slotId;
+	private final long slotId;
 
 	/** The slot list index to use */
 	private final int slotListIndex;
@@ -160,7 +160,7 @@ public class Pkcs11SignatureToken extends AbstractKeyStoreTokenConnection {
 	 * @param slotId
 	 *            the slotId to use
 	 */
-	public Pkcs11SignatureToken(String pkcs11Path, PasswordProtection password, int slotId) {
+	public Pkcs11SignatureToken(String pkcs11Path, PasswordProtection password, long slotId) {
 		this(pkcs11Path, new PrefilledPasswordCallback(password), slotId);
 	}
 
@@ -178,7 +178,7 @@ public class Pkcs11SignatureToken extends AbstractKeyStoreTokenConnection {
      * @param extraPkcs11Config
      *            extra configuration for pkcs11 library
      */
-    public Pkcs11SignatureToken(String pkcs11Path, PasswordProtection password, int slotId, String extraPkcs11Config) {
+    public Pkcs11SignatureToken(String pkcs11Path, PasswordProtection password, long slotId, String extraPkcs11Config) {
 		this(pkcs11Path, new PrefilledPasswordCallback(password), slotId, -1, extraPkcs11Config);
     }
 
@@ -193,7 +193,7 @@ public class Pkcs11SignatureToken extends AbstractKeyStoreTokenConnection {
 	 * @param slotId
 	 *            the slotId to use
 	 */
-	public Pkcs11SignatureToken(String pkcs11Path, PasswordInputCallback callback, int slotId) {
+	public Pkcs11SignatureToken(String pkcs11Path, PasswordInputCallback callback, long slotId) {
 		this(pkcs11Path, callback, slotId, -1, null);
 	}
 
@@ -210,7 +210,7 @@ public class Pkcs11SignatureToken extends AbstractKeyStoreTokenConnection {
 	 * @param extraPkcs11Config
 	 *                          extra configuration for pkcs11 library
 	 */
-	public Pkcs11SignatureToken(String pkcs11Path, PasswordInputCallback callback, int slotId, String extraPkcs11Config) {
+	public Pkcs11SignatureToken(String pkcs11Path, PasswordInputCallback callback, long slotId, String extraPkcs11Config) {
 		this(pkcs11Path, callback, slotId, -1, extraPkcs11Config);
 	}
 
@@ -229,7 +229,7 @@ public class Pkcs11SignatureToken extends AbstractKeyStoreTokenConnection {
 	 * @param extraPkcs11Config
 	 *                          extra configuration for pkcs11 library
 	 */
-	public Pkcs11SignatureToken(String pkcs11Path, PasswordInputCallback callback, int slotId, int slotListIndex, String extraPkcs11Config) {
+	public Pkcs11SignatureToken(String pkcs11Path, PasswordInputCallback callback, long slotId, int slotListIndex, String extraPkcs11Config) {
         this.pkcs11Path = pkcs11Path;
         this.callback = callback;
         this.slotId = slotId;
